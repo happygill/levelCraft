@@ -1,0 +1,34 @@
+{
+  "variants": {
+    "facing=east,left=true": {
+      "model": "levelcraft:block/research_table_left",
+      "y": 90
+    },
+    "facing=north,left=true": {
+      "model": "levelcraft:block/research_table_left"
+    },
+    "facing=south,left=true": {
+      "model": "levelcraft:block/research_table_left",
+      "y": 180
+    },
+    "facing=west,left=true": {
+      "model": "levelcraft:block/research_table_left",
+      "y": 270
+    },
+    "facing=east,left=false": {
+      "model": "levelcraft:block/research_table_right",
+      "y": 90
+    },
+    "facing=north,left=false": {
+      "model": "levelcraft:block/research_table_right"
+    },
+    "facing=south,left=false": {
+      "model": "levelcraft:block/research_table_right",
+      "y": 180
+    },
+    "facing=west,left=false": {
+      "model": "levelcraft:block/research_table_right",
+      "y": 270
+    }
+  }
+}

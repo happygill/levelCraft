@@ -6,6 +6,8 @@ import com.happysg.levelcraft.registry.ModItems;
 import com.happysg.levelcraft.registry.ModMenus;
 import com.mojang.logging.LogUtils;
 import net.minecraft.resources.ResourceLocation;
+import net.minecraft.world.item.CreativeModeTabs;
+import net.minecraftforge.event.BuildCreativeModeTabContentsEvent;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
@@ -28,6 +30,15 @@ public class LevelCraft {
         ModBlockEntities.register(modEventBus);
         ModMenus.register(modEventBus);
         modEventBus.addListener(ModMenus::registerScreens);
+        modEventBus.addListener(LevelCraft::addToCreativeTab);
+    }
+
+
+    public static void addToCreativeTab(BuildCreativeModeTabContentsEvent event) {
+        if (event.getTabKey() == CreativeModeTabs.FUNCTIONAL_BLOCKS) {
+            event.accept(ModItems.RESEARCH_TABLE_BLOCK_ITEM);
+        }
+
     }
 
     public static ResourceLocation asResource(String path) {
