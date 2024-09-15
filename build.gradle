@@ -4,6 +4,8 @@ plugins {
     id 'maven-publish'
     id 'net.minecraftforge.gradle' version '[6.0,6.2)'
     id 'org.parchmentmc.librarian.forgegradle' version '1.+'
+    id 'org.spongepowered.mixin' version '0.7.38'
+
 }
 
 version = mod_version
@@ -33,6 +35,7 @@ minecraft {
             }
         }
 
+
         client {
             property 'forge.enabledGameTestNamespaces', mod_id
         }
@@ -56,12 +59,24 @@ minecraft {
 sourceSets.main.resources { srcDir 'src/generated/resources' }
 
 repositories {
+    maven {
+        // location of a maven mirror for JEI files, as a fallback
+        name = "ModMaven"
+        url = "https://modmaven.dev"
+    }
 }
 
 dependencies {
     minecraft "net.minecraftforge:forge:${minecraft_version}-${forge_version}"
+    annotationProcessor "org.spongepowered:mixin:0.8.5:processor"
 
 }
+
+mixin {
+    add sourceSets.main, 'levelcraft.refmap.json'
+    config 'levelcraft.mixins.json'
+}
+
 
 tasks.named('processResources', ProcessResources).configure {
     var replaceProperties = [
@@ -105,6 +120,11 @@ publishing {
             url "file://${project.projectDir}/mcmodsrepo"
         }
     }
+}
+
+afterEvaluate {
+    tasks.configureReobfTaskForReobfJar.mustRunAfter(tasks.compileJava)
+    tasks.configureReobfTaskForReobfJarJar.mustRunAfter(tasks.compileJava)
 }
 
 tasks.withType(JavaCompile).configureEach {
