@@ -1,0 +1,7 @@
+{
+  "recipes": {
+    "minecraft:shears": 10,
+    "minecraft:anvil": 20,
+    "modded:craftingstation": 30
+  }
+}
