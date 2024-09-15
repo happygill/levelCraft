@@ -10,6 +10,7 @@ public class ModBlockEntities {
     public static final DeferredRegister<BlockEntityType<?>> BLOCK_ENTITIES = DeferredRegister.create(ForgeRegistries.BLOCK_ENTITY_TYPES, LevelCraft.MODID);
 
     public static void register(IEventBus eventBus) {
+        LevelCraft.LOGGER.info("Registering block entities");
         BLOCK_ENTITIES.register(eventBus);
     }
 }

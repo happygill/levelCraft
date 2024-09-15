@@ -18,9 +18,10 @@ import java.util.stream.Collectors;
 @Mod(LevelCraft.MODID)
 public class LevelCraft {
     public static final String MODID = "levelcraft";
-    private static final Logger LOGGER = LogUtils.getLogger();
+    public static final Logger LOGGER = LogUtils.getLogger();
 
     public LevelCraft(FMLJavaModLoadingContext context) {
+        LOGGER.info("Initializing LevelCraft");
         IEventBus modEventBus = context.getModEventBus();
         ModBlocks.register(modEventBus);
         ModItems.register(modEventBus);

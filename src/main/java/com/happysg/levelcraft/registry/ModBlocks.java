@@ -12,6 +12,7 @@ public class ModBlocks {
 
 
     public static void register(IEventBus eventBus) {
+        LevelCraft.LOGGER.info("Registering blocks");
         BLOCKS.register(eventBus);
     }
 }

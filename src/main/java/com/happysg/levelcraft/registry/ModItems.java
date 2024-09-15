@@ -11,6 +11,7 @@ public class ModItems {
 
 
     public static void register(IEventBus eventBus) {
+        LevelCraft.LOGGER.info("Registering items");
         ITEMS.register(eventBus);
     }
 }

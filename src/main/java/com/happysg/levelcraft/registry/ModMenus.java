@@ -12,10 +12,11 @@ public class ModMenus {
 
 
     public static void register(IEventBus eventBus) {
+        LevelCraft.LOGGER.info("Registering menus");
         MENUS.register(eventBus);
     }
 
     public static void registerScreens(FMLClientSetupEvent event) {
-
+        LevelCraft.LOGGER.info("Registering screens");
     }
 }
